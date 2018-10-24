@@ -2,6 +2,7 @@ package com.codingnomads.andy.mydivingapplication;
 
 import android.content.Context;
 import android.media.Image;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,17 +32,22 @@ public class DiveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dive);
         mRecyclerView = findViewById(R.id.dive_recycler_view);
+        mAdapter = new DiveAdapter(diveList);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new DiveAdapter(diveList);
+        DiveService diveService = new DiveService(new DiveRepository(createRestTemplate()));
+
         mRecyclerView.setAdapter(mAdapter);
 
-        prepareDiveData();
+        GetDivesTask getDivesTask = new GetDivesTask(diveList,diveService,mAdapter);
+
+        getDivesTask.execute();
+
     }
 
-    public void prepareDiveData(){
+    public void prepareDiveData() {
         Dive dive1 = new Dive();
         dive1.setDate("2018-03-03");
         dive1.setDurationInMinutes(12);
@@ -59,4 +68,12 @@ public class DiveActivity extends AppCompatActivity {
 
         diveList.add(dive1);
     }
+
+    private RestTemplate createRestTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+        return restTemplate;
+    }
+
+
 }

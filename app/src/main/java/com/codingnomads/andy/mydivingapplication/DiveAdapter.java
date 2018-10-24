@@ -46,12 +46,9 @@ public class DiveAdapter extends RecyclerView.Adapter<DiveAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder( MyViewHolder holder, int position) {
         Dive dive = diveList.get(position);
-//        Picasso.get().load(R.drawable.fish)
-//                .into(holder.imageView);
         Picasso.get()
                 .load("https://4.bp.blogspot.com/-GKLQoOOvVNQ/VbuWoDSD0zI/AAAAAAAAKvg/I0lc-gxKbKs/s1600/38-dos-ojos-cenote-review-ojo-uno.jpg")
                 .into(holder.imageView);
-        //holder.imageView.setImageResource(R.drawable.fish);
         holder.location.setText(dive.getLocation());
         holder.date.setText(dive.getDate());
         holder.duration_in_minutes.setText(Integer.toString(dive.getDurationInMinutes()) + " mins");
