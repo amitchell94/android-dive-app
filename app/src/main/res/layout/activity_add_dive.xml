@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="75dp"
+    android:paddingTop="75dp"
+    android:paddingRight="75dp"
+    android:paddingBottom="10dp">
+    <EditText
+        android:id="@+id/location_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Location"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <EditText
+        android:id="@+id/date_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="datetime"
+        android:hint="Date(YYYY-MM-DD)"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <EditText
+        android:id="@+id/duration_in_minutes_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Duration(mins)"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <EditText
+        android:id="@+id/max_depth_in_meters_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Max Depth(m)"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <EditText
+        android:id="@+id/water_conditions_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Water conditions"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <CheckBox
+        android:id="@+id/performed_safety_stop_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfomed a safety stop"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="343dp" />
+
+    <Button
+        android:id="@+id/add_dive_button_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Dive"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="411dp"
+        android:onClick="addNewDive"/>
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>

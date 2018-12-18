@@ -1,23 +1,22 @@
-package com.codingnomads.andy.mydivingapplication;
+package com.codingnomads.andy.mydivingapplication.presentation;
 
-import android.content.Context;
-import android.media.Image;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
+import android.view.View;
 
-import com.squareup.picasso.Picasso;
+import com.codingnomads.andy.mydivingapplication.data.DiveAdapter;
+import com.codingnomads.andy.mydivingapplication.data.DiveRepository;
+import com.codingnomads.andy.mydivingapplication.logic.DiveService;
+import com.codingnomads.andy.mydivingapplication.logic.GetDivesTask;
+import com.codingnomads.andy.mydivingapplication.R;
+import com.codingnomads.andy.mydivingapplication.logic.Dive;
 
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,27 +46,6 @@ public class DiveActivity extends AppCompatActivity {
 
     }
 
-    public void prepareDiveData() {
-        Dive dive1 = new Dive();
-        dive1.setDate("2018-03-03");
-        dive1.setDurationInMinutes(12);
-        dive1.setLocation("The Pit");
-        dive1.setMaxDepthInMeters(24);
-        dive1.setPerformedSafetyStop(true);
-        dive1.setWaterConditions("bad");
-
-        diveList.add(dive1);
-
-        dive1 = new Dive();
-        dive1.setDate("2018-02-02");
-        dive1.setDurationInMinutes(12);
-        dive1.setLocation("Dos Ojos");
-        dive1.setMaxDepthInMeters(24);
-        dive1.setPerformedSafetyStop(true);
-        dive1.setWaterConditions("bad");
-
-        diveList.add(dive1);
-    }
 
     private RestTemplate createRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
@@ -75,5 +53,8 @@ public class DiveActivity extends AppCompatActivity {
         return restTemplate;
     }
 
+    public void addDive(View view) {
+        startActivity(new Intent(DiveActivity.this,AddDiveActivity.class));
+    }
 
 }

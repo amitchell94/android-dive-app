@@ -1,4 +1,4 @@
-package com.codingnomads.andy.mydivingapplication;
+package com.codingnomads.andy.mydivingapplication.logic;
 
 import java.time.LocalDate;
 

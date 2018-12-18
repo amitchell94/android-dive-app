@@ -1,13 +1,14 @@
-package com.codingnomads.andy.mydivingapplication;
+package com.codingnomads.andy.mydivingapplication.data;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codingnomads.andy.mydivingapplication.R;
+import com.codingnomads.andy.mydivingapplication.logic.Dive;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,12 +1,11 @@
-package com.codingnomads.andy.mydivingapplication;
+package com.codingnomads.andy.mydivingapplication.logic;
 
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class GetDivesTask extends AsyncTask<String, Void,List<Dive>> {
+public class GetDivesTask extends AsyncTask<String, Void, List<Dive>> {
 
     private List<Dive> diveList;
     private DiveService diveService;
